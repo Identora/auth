@@ -1,0 +1,25 @@
+{
+  "name": "@identora/auth",
+  "version": "0.1.0",
+  "description": "Purp authentication library for Angular",
+  "scripts": {
+    "build": "ng-packagr -p projects/auth/ng-package.json",
+    "release": "npm run build && cd dist/auth && npm publish",
+    "push": "git add . && git commit -m \"chore: update\" && git push"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/router": "^19.0.0",
+    "rxjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^19.2.0",
+    "@angular/compiler-cli": "^19.2.0",
+    "ng-packagr": "^19.2.0",
+    "typescript": "~5.7.0"
+  }
+}
