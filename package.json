@@ -1,6 +1,6 @@
 {
   "name": "@cl4im/angular",
-  "version": "0.1.2",
+  "version": "0.0.1",
   "description": "cl4im authentication library for Angular",
   "scripts": {
     "build": "ng-packagr -p projects/auth/ng-package.json",
