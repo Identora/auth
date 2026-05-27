@@ -5,6 +5,9 @@
   "scripts": {
     "build": "ng-packagr -p projects/auth/ng-package.json",
     "release": "npm run build && cd dist/auth && npm publish",
+    "release:patch": "node bump.js patch && npm run release",
+    "release:minor": "node bump.js minor && npm run release",
+    "release:major": "node bump.js major && npm run release",
     "push": "git add . && git commit -m \"chore: update\" && git push"
   },
   "publishConfig": {
