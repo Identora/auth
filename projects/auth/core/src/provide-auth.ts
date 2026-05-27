@@ -1,5 +1,5 @@
 import { APP_INITIALIZER, EnvironmentProviders, makeEnvironmentProviders } from '@angular/core';
-import { AUTH_CONFIG, AuthConfig } from '@identora/auth';
+import { AUTH_CONFIG, AuthConfig } from '@cl4im/angular';
 import { AuthorizationService } from './authorization.service';
 
 export function provideAuth(config: AuthConfig): EnvironmentProviders {

@@ -3,8 +3,8 @@ import { Injectable, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, distinctUntilChanged, firstValueFrom, Observable } from 'rxjs';
 
-import { generatePkcePair, decodeJwt } from '@identora/auth/util';
-import { AUTH_CONFIG, AuthConfig } from '@identora/auth';
+import { generatePkcePair, decodeJwt } from '@cl4im/angular/util';
+import { AUTH_CONFIG, AuthConfig } from '@cl4im/angular';
 import { ViewService } from './view.service';
 
 type ChannelMessage =
@@ -94,7 +94,7 @@ export class AuthorizationService {
       if (!payload?.exp) return;
       const remainingMs = payload.exp * 1000 - Date.now();
       const remainingSec = Math.round(remainingMs / 1000);
-      console.log(`[purp-auth] token expira em ${remainingSec}s (${new Date(payload.exp * 1000).toLocaleTimeString()})`);
+      console.log(`[cl4im-angular] token expira em ${remainingSec}s (${new Date(payload.exp * 1000).toLocaleTimeString()})`);
     }, 10_000);
   }
 

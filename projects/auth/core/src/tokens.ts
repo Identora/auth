@@ -1,2 +1,2 @@
-export { AUTH_CONFIG } from '@identora/auth';
-export type { AuthConfig } from '@identora/auth';
+export { AUTH_CONFIG } from '@cl4im/angular';
+export type { AuthConfig } from '@cl4im/angular';

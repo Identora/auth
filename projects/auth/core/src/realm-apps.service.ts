@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import { AUTH_CONFIG, AuthConfig } from '@identora/auth';
+import { AUTH_CONFIG, AuthConfig } from '@cl4im/angular';
 
 export interface AppDef {
   id: string;

@@ -1,7 +1,7 @@
 {
-  "name": "@identora/auth",
-  "version": "0.1.0",
-  "description": "Purp authentication library for Angular",
+  "name": "@cl4im/angular",
+  "version": "0.1.2",
+  "description": "cl4im authentication library for Angular",
   "scripts": {
     "build": "ng-packagr -p projects/auth/ng-package.json",
     "release": "npm run build && cd dist/auth && npm publish",

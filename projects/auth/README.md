@@ -1,4 +1,4 @@
-# @identora/auth
+# @cl4im/angular
 
 Angular authentication library implementing the OAuth 2.0 Authorization Code flow with PKCE. Handles token acquisition, silent renewal, route guarding, and view state management for multi-realm applications.
 
@@ -6,9 +6,9 @@ Angular authentication library implementing the OAuth 2.0 Authorization Code flo
 
 | Import path | Purpose |
 |---|---|
-| `@identora/auth` | Configuration token and interface |
-| `@identora/auth/core` | Services, guard, and provider function |
-| `@identora/auth/util` | Pure JWT and PKCE utilities |
+| `@cl4im/angular` | Configuration token and interface |
+| `@cl4im/angular/core` | Services, guard, and provider function |
+| `@cl4im/angular/util` | Pure JWT and PKCE utilities |
 
 ---
 
@@ -17,7 +17,7 @@ Angular authentication library implementing the OAuth 2.0 Authorization Code flo
 The library is published to npm as a scoped package:
 
 ```bash
-npm install @identora/auth
+npm install @cl4im/angular
 ```
 
 ---
@@ -27,8 +27,8 @@ npm install @identora/auth
 Register the library in your `app.config.ts` using `provideAuth`:
 
 ```ts
-import { provideAuth } from '@identora/auth/core';
-import { AUTH_CONFIG } from '@identora/auth';
+import { provideAuth } from '@cl4im/angular/core';
+import { AUTH_CONFIG } from '@cl4im/angular';
 import { environment } from 'src/environments/environment';
 
 export const appConfig: ApplicationConfig = {
@@ -41,7 +41,7 @@ export const appConfig: ApplicationConfig = {
 Or register the token directly if you need more control:
 
 ```ts
-import { AUTH_CONFIG } from '@identora/auth';
+import { AUTH_CONFIG } from '@cl4im/angular';
 
 providers: [
   { provide: AUTH_CONFIG, useValue: environment.auth },
@@ -63,14 +63,14 @@ interface AuthConfig {
 
 ---
 
-## `@identora/auth/core`
+## `@cl4im/angular/core`
 
 ### `AuthorizationService`
 
 Manages the full OAuth 2.0 + PKCE lifecycle.
 
 ```ts
-import { AuthorizationService } from '@identora/auth/core';
+import { AuthorizationService } from '@cl4im/angular/core';
 
 @Component({ ... })
 export class AppComponent {
@@ -100,10 +100,10 @@ Token renewal is scheduled automatically when a token is applied. Renewal fires 
 
 ### `ViewService`
 
-Manages the hierarchical route and breadcrumb state that drives `@identora/ui`'s navigation components. Every route change is reflected here.
+Manages the hierarchical route and breadcrumb state that drives `@sp1ne/angular`'s navigation components. Every route change is reflected here.
 
 ```ts
-import { ViewService } from '@identora/auth/core';
+import { ViewService } from '@cl4im/angular/core';
 
 @Component({ ... })
 export class MyComponent {
@@ -134,7 +134,7 @@ export class MyComponent {
 Fetches the list of registered applications for a realm. Used by the header's app launcher.
 
 ```ts
-import { RealmAppsService } from '@identora/auth/core';
+import { RealmAppsService } from '@cl4im/angular/core';
 
 const apps = await realmAppsService.getApplications(token);
 // Returns: AppDef[] — [{ id, name, app_url }]
@@ -147,7 +147,7 @@ const apps = await realmAppsService.getApplications(token);
 Route guard that blocks access to private routes when the user is not authenticated. Redirects to `/login` on failure.
 
 ```ts
-import { PrivateGuard } from '@identora/auth/core';
+import { PrivateGuard } from '@cl4im/angular/core';
 
 const routes: Routes = [
   {
@@ -160,12 +160,12 @@ const routes: Routes = [
 
 ---
 
-## `@identora/auth/util`
+## `@cl4im/angular/util`
 
 Pure utility functions with no Angular dependency — safe to use in services, guards, or plain TypeScript.
 
 ```ts
-import { decodeJwt, isJwtExpired, generatePkcePair } from '@identora/auth/util';
+import { decodeJwt, isJwtExpired, generatePkcePair } from '@cl4im/angular/util';
 
 const payload = decodeJwt<{ sub: string; exp: number }>(token);
 const expired  = isJwtExpired(token);
@@ -195,7 +195,7 @@ authorize()
   └─ redirect to /authorize with PKCE challenge
 
 Identity provider redirects to redirectUrl?code=...
-  └─ CallbackComponent (from @identora/ui/shell)
+  └─ CallbackComponent (from @sp1ne/angular/shell)
        └─ token(params) → store access token → schedule renewal
 ```
 

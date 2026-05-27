@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { BehaviorSubject, firstValueFrom, Observable } from 'rxjs';
 import { LocationStrategy } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { AUTH_CONFIG, AuthConfig } from '@identora/auth';
+import { AUTH_CONFIG, AuthConfig } from '@cl4im/angular';
 
 export type Route = {
   route_display_name?: string;
